@@ -39,6 +39,14 @@ public class UserCache {
         return CacheHolder.instance;
     }
 
+    public void clear() {
+        userCache.invalidateAll();
+        roleCache.invalidateAll();
+        userRoleRelation.invalidateAll();
+        roleUserRelation.invalidateAll();
+        tokenCache.invalidateAll();
+    }
+
     public User getUser(String username) {
         return userCache.getIfPresent(username);
     }
